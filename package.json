@@ -108,23 +108,6 @@
       "include": "build/installer.nsh",
       "oneClick": false
     },
-    "linux": {
-      "icon": "build/icon.svg",
-      "category": "Network",
-      "maintainer": "contact@equicord.org",
-      "target": ["deb", "tar.gz", "rpm", "AppImage"]
-    },
-    "mac": {
-      "target": [
-        {
-          "target": "default",
-          "arch": "universal"
-        }
-      ],
-      "category": "public.app-category.social-networking",
-      "darkModeSupport": true,
-      "notarize": true
-    },
     "publish": {
       "provider": "github"
     },
