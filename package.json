@@ -73,6 +73,7 @@
     "appId": "org.equicord.equilibrium",
     "productName": "Equilibrium",
     "executableName": "equilibrium",
+    "skipImageResizing": true,
     "directories": {
       "output": "dist"
     },
@@ -92,7 +93,6 @@
     },
     "win": {
       "icon": "build/icon.ico",
-      "skipImageResizing": true,
       "target": [
         {
           "target": "nsis",
@@ -113,7 +113,13 @@
     },
     "electronFuses": {
       "runAsNode": false,
-      "onlyLoadAppFromAsar": true
+      "enableCookieEncryption": false,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "enableEmbeddedAsarIntegrityValidation": false,
+      "onlyLoadAppFromAsar": true,
+      "loadBrowserProcessSpecificV8Snapshot": false,
+      "grantFileProtocolExtraPrivileges": false
     }
   },
   "trustedDependencies": [
