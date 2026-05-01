@@ -73,7 +73,6 @@
     "appId": "org.equicord.equilibrium",
     "productName": "Equilibrium",
     "executableName": "equilibrium",
-    "skipImageResizing": true,
     "directories": {
       "output": "dist"
     },
