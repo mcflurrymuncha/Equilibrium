@@ -5,79 +5,136 @@
     <title>Launch Arguments</title>
 
     <link rel="stylesheet" href="./common.css" type="text/css" />
+    <!-- Import Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --accent: #ff85ba;
+            --accent-hover: #f767a6;
+            --bg: #fff0f6;
+            --bg-card: #ffffff;
+            --fg: #2d3436;
+            --fg-secondary: #636e72;
+            --fg-semi-trans: rgba(255, 133, 186, 0.2);
+            --danger: #ff4d4d;
+        }
+
         body {
             height: 100vh;
-            padding: 1.5em;
+            padding: 2em;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            margin: 0;
         }
 
         h1 {
-            margin: 0 0 0.5em;
-            font-size: 1.4rem;
+            margin: 0 0 0.4em;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
         }
 
         p {
-            margin: 0 0 1em;
+            margin: 0 0 1.5em;
             font-size: 0.9rem;
             color: var(--fg-secondary);
+            line-height: 1.4;
         }
 
         .warning {
-            background: #ff6b6b22;
-            border: 1px solid #ff6b6b;
-            border-radius: 6px;
-            padding: 0.8em;
-            margin-bottom: 1em;
+            background: #fff;
+            border: 1px solid var(--danger);
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1em;
+            margin-bottom: 1.5em;
             font-size: 0.85rem;
+            color: var(--fg);
+            box-shadow: 0 4px 10px rgba(255, 77, 77, 0.05);
+        }
+
+        .input-container {
+            background: var(--bg-card);
+            padding: 1.5em;
+            border-radius: 12px;
+            border: 1px solid var(--fg-semi-trans);
+            box-shadow: 0 4px 15px rgba(255, 133, 186, 0.1);
         }
 
         input[type="text"] {
             width: 100%;
-            padding: 0.6em;
+            padding: 0.8em 1em;
             background: var(--bg);
             color: var(--fg);
-            border: 1px solid var(--fg-semi-trans);
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 0.95rem;
+            border: 2px solid var(--fg-semi-trans);
+            border-radius: 8px;
+            font-family: 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.9rem;
             box-sizing: border-box;
+            transition: all 0.2s;
         }
 
         input[type="text"]:focus {
             outline: none;
-            border-color: var(--link);
+            border-color: var(--accent);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(255, 133, 186, 0.1);
+        }
+
+        input::placeholder {
+            color: var(--fg-secondary);
+            opacity: 0.5;
         }
 
         #buttons {
             display: flex;
             justify-content: end;
-            gap: 0.5em;
+            gap: 0.8em;
             margin-top: auto;
+            padding-top: 1em;
         }
 
         button {
-            padding: 0.6em 1.2em;
-            color: white;
-            border-radius: 6px;
+            padding: 0.7em 1.5em;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
-            transition: 200ms filter;
-        }
-
-        button:hover {
-            filter: brightness(0.8);
+            font-size: 0.9rem;
+            transition: all 200ms ease;
         }
 
         #cancel {
-            background: #666;
+            background: #f1f3f5;
+            color: var(--fg-secondary);
+        }
+
+        #cancel:hover {
+            background: #e9ecef;
+            color: var(--fg);
         }
 
         #save {
-            background: #5865f2;
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 133, 186, 0.3);
+        }
+
+        #save:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        #save:active {
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -87,10 +144,12 @@
     <p>Configure additional command-line arguments passed to Discord. Changes require a restart.</p>
 
     <div class="warning">
-        Only use arguments you understand. Incorrect arguments may cause instability or security issues.
+        <strong>Caution:</strong> Only use arguments you understand. Incorrect arguments may cause instability or security issues.
     </div>
 
-    <input type="text" id="args" placeholder="--force_high_performance_gpu" />
+    <div class="input-container">
+        <input type="text" id="args" placeholder="--force_high_performance_gpu" spellcheck="false" />
+    </div>
 
     <div id="buttons">
         <button id="cancel">Cancel</button>
@@ -106,4 +165,7 @@
 
     document.getElementById("cancel").onclick = () => console.info("close");
     document.getElementById("save").onclick = () => console.info("save:" + argsInput.value);
+    
+    // Auto-focus the input on load
+    window.onload = () => argsInput.focus();
 </script>
