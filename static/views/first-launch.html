@@ -2,49 +2,79 @@
 <meta charset="utf-8" />
 
 <head>
-    <title>Equibop Setup</title>
+    <title>Equilibrium Setup</title>
 
     <link rel="stylesheet" href="./common.css" type="text/css" />
+    <!-- Import Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            /* Pink Theme Variables */
+            --accent: #ff85ba;
+            --accent-hover: #f767a6;
+            --bg: #fff0f6;
+            --fg: #2d3436;
+            --fg-secondary: #636e72;
+            --fg-semi-trans: rgba(255, 133, 186, 0.2);
+            --card-bg: #ffffff;
+        }
+
         body {
             height: 100vh;
-
             padding: 1.5em;
             padding-bottom: 1em;
+            
+            /* Apply Inter Font */
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--fg);
 
             border: 1px solid var(--fg-semi-trans);
             border-top: none;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
+            margin: 0;
         }
 
         select {
-            background: var(--bg);
+            background: var(--card-bg);
             color: var(--fg);
             padding: 0.3em;
             margin: -0.3em;
             border-radius: 6px;
+            border: 1px solid var(--accent);
+            outline: none;
         }
 
         h1 {
             margin: 0.4em 0 0;
+            color: var(--accent);
+            font-weight: 600;
         }
 
         p {
-            margin: 1em 0 2em;
+            margin: 0.5em 0 2em;
+            font-weight: 400;
         }
 
         form {
             display: grid;
-            gap: 1em;
+            gap: 1.2em;
             margin: 0;
+            background: var(--card-bg);
+            padding: 1.5em;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 133, 186, 0.1);
         }
 
         label {
             position: relative;
             display: flex;
+            align-items: center;
             justify-content: space-between;
         }
 
@@ -53,14 +83,21 @@
             cursor: pointer;
         }
 
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            accent-color: var(--accent);
+            width: 1.2em;
+            height: 1.2em;
+        }
+
         label:not(:last-child)::after {
             content: "";
             position: absolute;
             bottom: -10px;
             width: 100%;
             height: 1px;
-            background-color: var(--fg-secondary);
-            opacity: 0.5;
+            background-color: var(--accent);
+            opacity: 0.15;
         }
 
         label div {
@@ -70,47 +107,71 @@
 
         label h2 {
             margin: 0;
-            font-weight: normal;
-            font-size: 1.1rem;
-            line-height: 1rem;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.2rem;
         }
 
         label span {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 400;
             color: var(--fg-secondary);
+        }
+
+        label a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        label a:hover {
+            text-decoration: underline;
         }
 
         #buttons {
             display: flex;
             justify-content: end;
-            gap: 0.5em;
+            gap: 0.8em;
             margin-top: auto;
+            padding-top: 1em;
         }
 
         button {
-            padding: 0.6em;
-            background: red;
-            color: white;
-            border-radius: 6px;
+            padding: 0.7em 1.5em;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            background: #e9ecef;
+            color: var(--fg);
+            border-radius: 8px;
             border: none;
             cursor: pointer;
-            transition: 200ms filter;
+            transition: all 200ms ease;
         }
 
         button:hover {
-            filter: brightness(0.8);
+            filter: brightness(0.95);
+            transform: translateY(-1px);
+        }
+
+        #cancel {
+            background: #ffe3e3;
+            color: #e03131;
         }
 
         #submit {
-            background: green;
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 133, 186, 0.3);
+        }
+
+        #submit:hover {
+            background: var(--accent-hover);
         }
     </style>
 </head>
 
 <body>
-    <h1>Welcome to Equibop</h1>
-    <p>Let's customise your experience!</p>
+    <h1>Welcome to Equilibrium!</h1>
+    <p>Let's customise your experience! :3</p>
 
     <form>
         <label>
@@ -125,7 +186,7 @@
         <label>
             <div>
                 <h2>Start with System</h2>
-                <span>Automatically open Equibop when your computer starts</span>
+                <span>Automatically open Equilibrium when your computer starts</span>
             </div>
             <input type="checkbox" name="autoStart" />
         </label>
@@ -133,10 +194,8 @@
         <label>
             <div>
                 <h2>Rich Presence</h2>
-                <span
-                    >Enable Rich presence (game activity) via
-                    <a href="https://github.com/Creationsss/arrpc-bun/" target="_blank">arRPC-bun</a></span
-                >
+                <span>Enable Rich presence (game activity) via
+                    <a href="https://github.com/Creationsss/arrpc-bun/" target="_blank">arRPC-bun</a></span>
             </div>
             <input type="checkbox" name="richPresence" checked />
         </label>
@@ -144,7 +203,7 @@
         <label>
             <div>
                 <h2>Import Settings</h2>
-                <span>Import Settings from existing Equicord install (if found)</span>
+                <span>Import Settings from an existing Vencord or Equicord install</span>
             </div>
             <input type="checkbox" name="importSettings" checked />
         </label>
@@ -158,18 +217,32 @@
         </label>
     </form>
     <div id="buttons">
-        <button id="cancel">Quit</button>
-        <button id="submit">Submit</button>
+        <button id="cancel" type="button">Quit</button>
+        <button id="submit" type="submit">Submit</button>
     </div>
-</body>
 
-<script>
-    cancel.onclick = () => console.info("cancel");
-    submit.onclick = e => {
-        const form = document.querySelector("form");
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        console.info("form:" + JSON.stringify(data));
-        e.preventDefault();
-    };
-</script>
+    <script>
+        const cancel = document.getElementById('cancel');
+        const submit = document.getElementById('submit');
+
+        cancel.onclick = () => {
+            console.info("cancel");
+            // If in Electron, you'd usually call window.close()
+        };
+
+        submit.onclick = e => {
+            const form = document.querySelector("form");
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Handle checkboxes that are missing from FormData when unchecked
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                data[cb.name] = cb.checked;
+            });
+
+            console.info("form:" + JSON.stringify(data));
+            e.preventDefault();
+        };
+    </script>
+</body>
