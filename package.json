@@ -70,17 +70,26 @@
         "bun": ">=1.3.0"
     },
     "build": {
-        "appId": "org.equicord.equibop",
-        "productName": "Equibop",
-        "executableName": "equibop",
-        "files": [
-            "!*",
-            "!node_modules",
-            "dist/js",
-            "static",
-            "package.json",
-            "LICENSE"
-        ],
+    "appId": "org.equicord.equilibrium",
+    "productName": "Equilibrium",
+    "executableName": "equilibrium",
+    "directories": {
+        "output": "dist"
+    },
+    "win": {
+        "target": "nsis",
+        "icon": "build/icon.ico",
+        "skipimageresizing": true
+    },
+    "files": [
+        "!*",
+        "!node_modules",
+        "dist/js",
+        "static",
+        "package.json",
+        "LICENSE"
+    ]
+}
         "protocols": {
             "name": "Discord",
             "schemes": [
