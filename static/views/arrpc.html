@@ -5,8 +5,26 @@
     <title>Rich Presence Settings</title>
 
     <link rel="stylesheet" href="./common.css" type="text/css" />
+    <!-- Import Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --accent: #ff85ba;
+            --accent-hover: #f767a6;
+            --bg: #fff0f6;
+            --bg-card: #ffffff;
+            --fg: #2d3436;
+            --fg-secondary: #636e72;
+            --fg-semi-trans: rgba(255, 133, 186, 0.2);
+            --link: #f767a6;
+            --success: #ff85ba; /* Pink is the new green */
+            --danger: #ff4d4d;
+            --warning: #faa81a;
+        }
+
         body {
             height: 100vh;
             padding: 1.5em 2em;
@@ -14,12 +32,17 @@
             flex-direction: column;
             box-sizing: border-box;
             overflow-y: auto;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            margin: 0;
         }
 
         h1 {
             margin: 0;
             font-size: 1.5rem;
             font-weight: 600;
+            color: var(--accent);
         }
 
         .description {
@@ -30,10 +53,12 @@
         }
 
         .status-card {
-            background: var(--bg-secondary, rgba(0, 0, 0, 0.1));
-            border-radius: 8px;
-            padding: 1em;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.2em;
             margin-bottom: 1.5em;
+            box-shadow: 0 4px 12px rgba(255, 133, 186, 0.1);
+            border: 1px solid var(--fg-semi-trans);
         }
 
         .status {
@@ -48,10 +73,11 @@
             height: 10px;
             border-radius: 50%;
             flex-shrink: 0;
+            box-shadow: 0 0 8px currentColor;
         }
 
         .status-text {
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .status-meta {
@@ -63,6 +89,7 @@
             color: var(--link);
             user-select: none;
             margin-left: 4px;
+            font-weight: 600;
         }
 
         .activities-toggle:hover {
@@ -83,7 +110,8 @@
         }
 
         .activity-name {
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--fg);
         }
 
         .activity-pid {
@@ -92,27 +120,27 @@
         }
 
         .settings-section {
+            background: var(--bg-card);
+            padding: 0 1.2em;
+            border-radius: 12px;
+            border: 1px solid var(--fg-semi-trans);
             margin-bottom: 1.5em;
         }
 
         .section-title {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--fg-secondary);
+            letter-spacing: 0.08em;
+            color: var(--accent);
             margin: 1.5em 0 0.75em;
-        }
-
-        .section-title:first-child {
-            margin-top: 0;
         }
 
         .setting {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.75em 0;
+            padding: 1em 0;
         }
 
         .setting + .setting {
@@ -126,8 +154,8 @@
 
         .setting-title {
             font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 0.2em;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
         }
 
         .setting-description {
@@ -140,15 +168,15 @@
             position: relative;
             width: 44px;
             height: 24px;
-            background: #72767d;
+            background: #d1d8e0;
             border-radius: 12px;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             flex-shrink: 0;
         }
 
         .toggle.on {
-            background: #3ba55d;
+            background: var(--accent);
         }
 
         .toggle::after {
@@ -160,59 +188,36 @@
             border-radius: 50%;
             top: 3px;
             left: 3px;
-            transition: left 0.2s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .toggle.on::after {
             left: 23px;
         }
 
-        .input-group {
-            margin-top: 0.75em;
-        }
-
-        .input-label {
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 0.5em;
-            color: var(--fg-secondary);
-        }
-
         .input-row {
             display: flex;
             gap: 10px;
+            padding-bottom: 1.2em;
         }
 
         input[type="text"],
         input[type="number"] {
-            padding: 0.6em 0.8em;
+            padding: 0.7em 0.9em;
             background: var(--bg);
             color: var(--fg);
             border: 1px solid var(--fg-semi-trans);
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 0.9rem;
-            box-sizing: border-box;
-            transition: border-color 0.2s;
-        }
-
-        input[type="text"] {
-            flex: 2;
-        }
-
-        input[type="number"] {
-            flex: 1;
-            min-width: 80px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
         }
 
         input:focus {
             outline: none;
-            border-color: var(--link);
-        }
-
-        input::placeholder {
-            color: var(--fg-secondary);
-            opacity: 0.7;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 133, 186, 0.1);
         }
 
         #buttons {
@@ -220,38 +225,41 @@
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
-            padding-bottom: 1.5em;
-            padding-top: 1.5em;
+            padding: 1.5em 0;
             border-top: 1px solid var(--fg-semi-trans);
         }
 
         button {
-            padding: 0.6em 1.2em;
+            padding: 0.7em 1.4em;
             color: white;
-            border-radius: 6px;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
             font-size: 0.9rem;
-            font-weight: 500;
-            transition:
-                filter 0.15s,
-                transform 0.1s;
-        }
-
-        button:hover {
-            filter: brightness(1.1);
-        }
-
-        button:active {
-            transform: scale(0.98);
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
         }
 
         #restart {
-            background: #ed4245;
+            background: #fff0f6;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        #restart:hover {
+            background: var(--accent);
+            color: white;
         }
 
         #close {
-            background: #5865f2;
+            background: var(--accent);
+            box-shadow: 0 4px 10px rgba(255, 133, 186, 0.3);
+        }
+
+        #close:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
         }
 
         .hidden {
@@ -304,7 +312,7 @@
         </div>
     </div>
 
-    <div class="settings-section" id="advanced-settings">
+    <div id="advanced-wrapper" class="settings-section">
         <div class="section-title">Advanced</div>
 
         <div class="setting">
@@ -324,12 +332,12 @@
         </div>
 
         <div class="section-title">External Server</div>
-        <p class="description" style="margin: 0 0 0.75em">
+        <p class="description" style="margin: 0 0 0.75em; font-size: 0.8rem;">
             Connect to an external arRPC server instead of the built-in one.
         </p>
         <div class="input-row">
             <input type="text" id="custom-host" placeholder="Host (e.g. 127.0.0.1)" />
-            <input type="number" id="custom-port" placeholder="Port (default: 1337)" />
+            <input type="number" id="custom-port" placeholder="1337" />
         </div>
     </div>
 
@@ -340,6 +348,7 @@
 </body>
 
 <script>
+    // Logic remains identical to your original code
     const data = new URLSearchParams(location.search);
     let showActivities = false;
 
@@ -363,7 +372,7 @@
     const customHost = document.getElementById("custom-host");
     const customPort = document.getElementById("custom-port");
     const enabledSettings = document.getElementById("enabled-settings");
-    const advancedSettings = document.getElementById("advanced-settings");
+    const advancedWrapper = document.getElementById("advanced-wrapper");
     const processScanningRow = document.getElementById("process-scanning-setting");
 
     function updateToggle(el, value) {
@@ -380,7 +389,7 @@
 
     function updateVisibility() {
         enabledSettings.classList.toggle("hidden", settings.arRPCDisabled);
-        advancedSettings.classList.toggle("hidden", settings.arRPCDisabled);
+        advancedWrapper.classList.toggle("hidden", settings.arRPCDisabled);
         processScanningRow.classList.toggle("hidden", !settings.arRPC);
     }
     updateVisibility();
@@ -417,14 +426,8 @@
         console.info("set:arRPCDebug=" + settings.arRPCDebug);
     };
 
-    customHost.onchange = () => {
-        console.info("set:arRPCWebSocketCustomHost=" + customHost.value);
-    };
-
-    customPort.onchange = () => {
-        console.info("set:arRPCWebSocketCustomPort=" + customPort.value);
-    };
-
+    customHost.onchange = () => console.info("set:arRPCWebSocketCustomHost=" + customHost.value);
+    customPort.onchange = () => console.info("set:arRPCWebSocketCustomPort=" + customPort.value);
     document.getElementById("restart").onclick = () => console.info("restart");
     document.getElementById("close").onclick = () => console.info("close");
 
@@ -438,7 +441,7 @@
         let color, statusText;
 
         if (status.isReady) {
-            color = "#3ba55d";
+            color = "#ff85ba"; // Pink for connected
             statusText = "Connected";
         } else if (status.isStale) {
             color = "#faa81a";
@@ -452,6 +455,7 @@
         }
 
         dot.style.backgroundColor = color;
+        dot.style.color = color;
         text.textContent = statusText;
 
         const activityCount = status.activities?.length || 0;
@@ -465,10 +469,7 @@
             if (showActivities) {
                 activitiesList.classList.remove("hidden");
                 activitiesList.innerHTML = status.activities
-                    .map(
-                        a =>
-                            `<div class="activity-item"><span class="activity-name">${a.name}</span><span class="activity-pid">PID ${a.pid}</span></div>`
-                    )
+                    .map(a => `<div class="activity-item"><span class="activity-name">${a.name}</span><span class="activity-pid">PID ${a.pid}</span></div>`)
                     .join("");
             } else {
                 activitiesList.classList.add("hidden");
@@ -477,14 +478,9 @@
             activitiesInfo.textContent = "";
             activitiesList.classList.add("hidden");
         }
-
         versionInfo.textContent = status.appVersion ? `\u2022 v${status.appVersion}` : "";
     }
 
     renderStatus();
-
-    window.updateStatus = function (newStatus) {
-        status = newStatus;
-        renderStatus();
-    };
+    window.updateStatus = (newStatus) => { status = newStatus; renderStatus(); };
 </script>
