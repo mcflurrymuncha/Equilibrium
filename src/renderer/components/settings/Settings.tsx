@@ -50,7 +50,7 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
             key: "hardwareVideoAcceleration",
             title: "Video Hardware Acceleration",
             description:
-                "Enable hardware video acceleration. This can improve performance of screenshare and video playback, but may cause graphical glitches and infinitely loading streams.",
+                "Enable hardware video acceleration. This can improve performance of screenshare and video playback, but may cause graphical glitches and infinitely loading streams. (Not recommended)",
             defaultValue: false,
             disabled: () => Settings.store.hardwareAcceleration === false
         }
@@ -65,8 +65,8 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
         {
             key: "staticTitle",
             title: "Static Title",
-            description: 'Makes the window title "Equibop" instead of changing to the current page',
-            defaultValue: false
+            description: 'Makes the window title "Equilibrium" instead of changing to the current page',
+            defaultValue: true
         },
         {
             key: "enableMenu",
@@ -79,8 +79,8 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
             key: "enableSplashScreen",
             title: "Enable Splash Screen",
             description:
-                "Shows a small splash screen while Equibop is loading. Disabling this option will show the main window earlier while it's still loading.",
-            defaultValue: true
+                "Shows a small splash screen while Equilibrium is loading. Disabling this option will show the main window earlier while it's still loading.",
+            defaultValue: false
         },
         {
             key: "splashTheming",
@@ -101,14 +101,14 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
         {
             key: "tray",
             title: "Tray Icon",
-            description: "Add a tray icon for Equibop",
+            description: "Add a tray icon for Equilibrium",
             defaultValue: true,
             invisible: () => isMac
         },
         {
             key: "minimizeToTray",
             title: "Minimize to tray",
-            description: "Hitting X will make Equibop minimize to the tray instead of closing",
+            description: "Hitting X will make Equilibrium minimize to the tray instead of closing",
             defaultValue: true,
             invisible: () => isMac,
             disabled: () => Settings.store.tray === false
@@ -152,7 +152,7 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
         {
             key: "openLinksWithElectron",
             title: "Open Links in app (experimental)",
-            description: "Opens links in a new Equibop window instead of your web browser",
+            description: "Opens links in a new Equilibrium window instead of your web browser",
             defaultValue: false
         }
     ],
@@ -207,6 +207,6 @@ export default ErrorBoundary.wrap(
     },
     {
         message:
-            "Failed to render the Equibop Settings tab. If this issue persists, try to right click the Equibop tray icon, then click 'Repair Equicord'. And make sure your Equibop is up to date."
+            "Failed to render the Equilibrium Settings tab. If this issue persists, try to right click the Equilibrium tray icon, then click 'Repair Equicord'. And make sure your Equilibrium is up to date."
     }
 );
