@@ -29,14 +29,14 @@ function openDeveloperOptionsModal(settings: Settings) {
         <ModalRoot {...props} size={ModalSize.MEDIUM}>
             <ModalHeader>
                 <BaseText size="lg" weight="semibold" tag="h3" style={{ flexGrow: 1 }}>
-                    Equibop Developer Options
+                    Equilibrium Developer Options
                 </BaseText>
                 <ModalCloseButton onClick={props.onClose} />
             </ModalHeader>
 
             <ModalContent>
                 <div style={{ padding: "1em 0" }}>
-                    <Heading tag="h5">Equicord Location</Heading>
+                    <Heading tag="h5">Equilibrium Location</Heading>
                     <EquicordLocationPicker settings={settings} />
 
                     <Heading tag="h5" className={Margins.top16}>
@@ -61,7 +61,7 @@ const EquicordLocationPicker: SettingsComponent = ({ settings }) => {
     return (
         <>
             <Paragraph>
-                Equicord files are loaded from{" "}
+                Equilibrium files are loaded from{" "}
                 {usingCustomEquicordDir ? (
                     <TextButton
                         variant="link"
@@ -86,7 +86,7 @@ const EquicordLocationPicker: SettingsComponent = ({ settings }) => {
                                 break;
                             case "ok":
                                 Toasts.show({
-                                    message: "Equicord install changed. Fully restart Equibop to apply.",
+                                    message: "Equilibrium install changed. Fully restart Equilibrium to apply.",
                                     id: Toasts.genId(),
                                     type: Toasts.Type.SUCCESS
                                 });
@@ -94,7 +94,7 @@ const EquicordLocationPicker: SettingsComponent = ({ settings }) => {
                             case "invalid":
                                 Toasts.show({
                                     message:
-                                        "You did not choose a valid Equicord install. Make sure you're selecting the dist dir!",
+                                        "You did not choose a valid Equilibrium install. Make sure you're selecting the dist dir!",
                                     id: Toasts.genId(),
                                     type: Toasts.Type.FAILURE
                                 });
