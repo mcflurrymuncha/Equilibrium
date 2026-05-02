@@ -9,15 +9,9 @@ Find a bug? put it in the Discord!<br></br>
 - Equicord preinstalled
 - Much more lightweight and faster than the official Discord app
 - Much better privacy, since Discord has no access to your system
-
-**Extra included changes**
-
 - Tray Customization with voice detection and notification badges
+- [arRPC-bun](https://github.com/Creationsss/arrpc-bun) for Rich Presence with debug logging support
 
-- arRPC-bun with debug logging support https://github.com/Creationsss/arrpc-bun
-
-**Not fully Supported**:
-- Global Keybinds (Windows/macOS - use command-line flags on Linux instead)
 
 ## Equilibrium Arguments
 > [!NOTE]
