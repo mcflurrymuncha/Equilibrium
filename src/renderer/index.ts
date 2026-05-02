@@ -31,14 +31,14 @@ const { customEntries, customSections } = Vencord.Plugins.plugins.Settings as an
 
 customEntries.push({
     key: "equicord_equibop_settings",
-    title: "Equicordium Settings",
+    title: "Equilibrium Settings",
     Component: SettingsUi,
     Icon: VesktopSettingsIcon
 });
 
 customSections.push(() => ({
     section: "EquibopSettings",
-    label: "Equilibrium Settings",
+    label: "Equilibrium",
     element: SettingsUi,
     className: "vc-equibop-settings"
 }));
