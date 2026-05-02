@@ -1,33 +1,28 @@
-# Equibop [<img src="/static/icon.png" width="225" align="right" alt="Equibop">](https://github.com/Equicord/Equibop)
+# Equilibrium
 
-[![Equicord](https://img.shields.io/badge/Equicord-grey?style=flat)](https://github.com/Equicord/Equicord)
-[![Tests](https://github.com/Equicord/Equibop/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Equicord/Equibop/actions/workflows/test.yml)
-[![Discord](https://img.shields.io/discord/1173279886065029291.svg?color=768AD4&label=Discord&logo=discord&logoColor=white)](https://equicord.org/discord)
+[![Equicord](https://img.shields.io/badge/Equilibrium-grey?style=flat)](https://github.com/mcflurrymuncha/Equilibrium)
+Equilibrium is a fork of [Equibop](https://github.com/Equicord/Equibop), a modification of [Vesktop](https://github.com/Vencord/Vesktop) to allow more stability on your crappy laptop from 2011 :3
 
-Equibop is a fork of [Vesktop](https://github.com/Vencord/Vesktop).
-
-You can join our [discord server](https://equicord.org/discord) for commits, changes, chat or even support.<br></br>
+Find a bug? put it in the Discord!<br></br>
 
 **Main features**:
 - Equicord preinstalled
 - Much more lightweight and faster than the official Discord app
-- Linux Screenshare with sound & wayland
 - Much better privacy, since Discord has no access to your system
 
 **Extra included changes**
 
 - Tray Customization with voice detection and notification badges
-- Command-line flags to toggle microphone and deafen status (Linux)
-- Custom Arguments from [this PR](https://github.com/Equicord/Equibop/pull/46)
+
 - arRPC-bun with debug logging support https://github.com/Creationsss/arrpc-bun
 
 **Not fully Supported**:
 - Global Keybinds (Windows/macOS - use command-line flags on Linux instead)
 
-## Equibop Arguments
+## Equilibrium Arguments
 > [!NOTE]
 > For the full list of supported flags and how to apply them, see the
-[Tips & Tricks](https://equibop.org/wiki/linux/tips/) page on the wiki!
+[Tips & Tricks](https://equibop.org/wiki/linux/tips/) page on the Equibop wiki!
 
 ### Quick reference
 
