@@ -1,7 +1,7 @@
 # Equilibrium
 
-[![Equicord](https://img.shields.io/badge/Equilibrium-grey?style=flat)](https://github.com/mcflurrymuncha/Equilibrium)
-Equilibrium is a fork of [Equibop](https://github.com/Equicord/Equibop), a modification of [Vesktop](https://github.com/Vencord/Vesktop) to allow more stability on your crappy laptop from 2011 :3
+[![Equilibrium](https://img.shields.io/badge/Equilibrium-grey?style=flat)](https://github.com/mcflurrymuncha/Equilibrium)
+is a fork of [Equibop](https://github.com/Equicord/Equibop), a modification of [Vesktop](https://github.com/Vencord/Vesktop) to allow more stability on your crappy laptop from 2011 :3
 
 Find a bug? put it in the Discord!<br></br>
 
